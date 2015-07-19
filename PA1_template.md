@@ -1,5 +1,10 @@
-# Reproducible Research: Peer Assessment 1
-Eric Hogewoning  
+---
+title: "Reproducible Research: Peer Assessment 1"
+author: "Eric Hogewoning"
+output: 
+  html_document:
+    keep_md: true
+---
 
 
 ## Loading and preprocessing the data
@@ -23,7 +28,7 @@ activity_day <- summarize(group_by(df_activity, date), Steps = sum(steps))
 hist(activity_day$Steps, xlab="Total number of steps", main="Histogram of Daily total number of steps")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-2-1.png) 
+![plot of chunk unnamed-chunk-2](figure/unnamed-chunk-2-1.png) 
 
 ```r
 ## mean total number of steps per day
@@ -54,7 +59,7 @@ activity_interval <- summarize(group_by(df_activity, interval), Steps = mean(ste
 plot(activity_interval$Steps~activity_interval$interval, type='l')
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-3-1.png) 
+![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3-1.png) 
 
 The 5-minute interval with the highest number of steps is:
 
@@ -113,7 +118,7 @@ cleaned_day <- summarize(group_by(df_cleaned, date), Steps = sum(steps))
 hist(cleaned_day$Steps, xlab="Total number of steps", main="Histogram of Daily total nbr of steps (after imputing missing values")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-7-1.png) 
+![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-7-1.png) 
 
 The mean and medium for the daily number of steps remain mostly unchanged (which is to be expected, since we replace the NA's with the mean values.)
 
@@ -159,4 +164,4 @@ p <- g + geom_line() + labs(y="avg number of steps", x="interval", title="activi
 print(p)
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-9-1.png) 
+![plot of chunk unnamed-chunk-9](figure/unnamed-chunk-9-1.png) 
